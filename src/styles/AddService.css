@@ -1,0 +1,16 @@
+.required-field {
+    border-color: #dc3545!important;
+}
+
+.required-field::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #dc3545!important;
+    opacity: 1; /* Firefox */
+}
+
+.required-field:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #dc3545!important;
+}
+
+.required-field::-ms-input-placeholder { /* Microsoft Edge */
+    color: #dc3545!important;
+}
