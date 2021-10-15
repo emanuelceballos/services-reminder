@@ -2,8 +2,9 @@ import { useState, useReducer, useEffect } from 'react';
 import { AgendaReducer } from '../reducers/AgendaReducer';
 import AddService from './AddService';
 import Service from './Service';
+import * as notifications from '../push-notification.js';
 
-const Services = ({ searchTerm }) => {
+const Services = ({ searchTerm, notificationGranted }) => {
 
     // Localstorage
     const storageName = "matech.agenda";
@@ -60,7 +61,10 @@ const Services = ({ searchTerm }) => {
 
         <>
             <div className="container m-2">
-                <button type="button" className="btn btn-primary" onClick={handleToggleForm}>{addServiceText}</button>
+                {notificationGranted &&
+                    <button type="button" className="btn btn-info" onClick={notifications.randomNotification}>Send notification</button>
+                }
+                &nbsp;<button type="button" className="btn btn-primary" onClick={handleToggleForm}>{addServiceText}</button>
             </div>
             {frmServiceVisible && <AddService dispatch={dispatch} />}
 
